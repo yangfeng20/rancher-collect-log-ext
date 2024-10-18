@@ -6,8 +6,10 @@
 - 脚本支持一键采集出容器中应用日志。方便复制到其他可视化工具中查看。
 
 ## 安装
-- 请先安装油猴脚本管理器
-- 然后安装
+- 请先安装油猴(tampermonkey)或者其他脚本管理器
+  - [https://www.tampermonkey.net/index.php](https://www.tampermonkey.net/index.php)
+- 然后访问地址安装
+  - [rancher-collect-log-ext](https://greasyfork.org/zh-CN/scripts/513072)
 
 ## 使用
 - 下载完成后请将脚本@match后的地址修改为你的rancher控制台地址
