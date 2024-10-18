@@ -11,7 +11,7 @@
 
 
 (function () {
-    'use strict';strict
+    'use strict';
 
     // 需要hook的ws包含url
     const TARGET_URL = 'exec';
