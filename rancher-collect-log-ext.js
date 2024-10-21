@@ -64,18 +64,22 @@
                 return;
             }
 
-            let base64Result = decodeURIComponent(atob(event.data.substring(1)));
+            let base64Result = atob(event.data.substring(1));
 
             // 过滤：]
-            if (base64Result.startsWith("]")) {
+            if (base64Result.startsWith("]0;") && base64Result.includes("")) {
+                console.log("过滤数据", base64Result)
                 return;
             }
             // 替换颜色
-            let parseData = base64Result.replaceAll(/.*?m/g, "");
+            let result1 = base64Result.replaceAll(/\[\d+;*\d+m/g, "");
+            // 查找字符串前缀颜色
+            let result2 = result1.replaceAll(/\[K/g, "");
+            let result3 = result2.replaceAll(/\[m/g, "");
             // 解码中文base64结果
-            let result = this.decodeBase64(parseData)
+            let result = this.decodeBase64(result3)
             // console.log("解析数据\n", result)
-            this.shellExt.collectResult(result.replaceAll(/.*?m/g, ""))
+            this.shellExt.collectResult(result)
         }
 
         decodeBase64(binaryString) {
